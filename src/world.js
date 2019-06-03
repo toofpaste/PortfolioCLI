@@ -1,6 +1,23 @@
+import City from "./city";
+
 export default class World {
-    constructor(args){
+    constructor(args){        
+        
         this.cities = [];
+        if (!args || !('cities' in args)) {
+            let cityCount = GetRandom(10, 16)
+            for (let i = 1; i < cityCount; i++) {
+                this.cities.push(new City({
+                    population: GetRandom(5, 2500) * 1000,
+                    name: generateTownName(),
+                    area: GetRandom(50, 300),
+                    waterCoverage: GetRandom(0, 100) / 100,
+                    lat: GetRandom(0, 359),
+                    lon: GetRandom(0, 359)
+                }));
+            }
+
+        }
         this.diseases = [];
         this.date = new Date("Jan 1 2020");
         Object.assign(this, args);

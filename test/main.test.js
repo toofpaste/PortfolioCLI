@@ -50,8 +50,20 @@ describe("World Tests", function () {
         expect(world.cities[0].name).toBe("Portland");
         expect(world.cities[1].name).toBe("San Fransisco");
         expect(world.diseases[0].name).toBe("Ebola");
-
+        
+        
     });
+    
+    test('World Constructor Random Cities', () => {
+        
+        let newWorld = new World();
+        expect(newWorld.cities.length >= 10).toBe(true);
+        expect(typeof newWorld.cities[0]).toBe("object");        
+        console.log(newWorld);
+        
+    });
+
+
 
 });
 
@@ -60,8 +72,7 @@ describe("Random Tests", function () {
 
     test('Create random name for towns', () => {
         let name = generateTownName();        
-        expect(name).toMatch("n");
-
+        expect(typeof name).toBe("string");
     });
 });
 
