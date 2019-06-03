@@ -58,12 +58,44 @@ describe("World Tests", function () {
         
         let newWorld = new World();
         expect(newWorld.cities.length >= 10).toBe(true);
-        expect(typeof newWorld.cities[0]).toBe("object");        
-        console.log(newWorld);
-        
+        expect(typeof newWorld.cities[0]).toBe("object");
+        expect(typeof newWorld.contagions[0]).toBe("object");
     });
 
+    test('To Infect Random City', () => {
+        
+        let newWorld = new World();
+        expect(newWorld.cities.filter( c => c.infected.length > 0).length).toBe(0);
+        newWorld.infectCity();
+        expect(newWorld.cities.filter( c => c.infected.length > 0).length).toBe(1);
+    })
 
+    test('Grow Infection in City', () => {
+        
+        let newWorld = new World();
+        newWorld.infectCity();
+        let infectedCity = newWorld.cities.filter( c => c.infected.length > 0)[0];
+        
+        expect(infectedCity.infected[0].infected).toBe(1);
+        newWorld.advanceDay();
+        expect(infectedCity.infected[0].infected).toBe(2);
+        newWorld.advanceDay();
+        expect(infectedCity.infected[0].infected).toBe(4);
+    });
+
+    test('Time Passage for Advancing the Day', () => {
+        jest.useFakeTimers();
+
+        let newWorld = new World();
+        newWorld.infectCity();
+        let infectedCity = newWorld.cities.filter( c => c.infected.length > 0)[0];
+        expect(infectedCity.infected[0].infected).toBe(1);
+        jest.advanceTimersByTime(1000);
+        expect(infectedCity.infected[0].infected).toBe(2);
+        jest.advanceTimersByTime(1000);
+        expect(infectedCity.infected[0].infected).toBe(4);
+
+    });
 
 });
 
