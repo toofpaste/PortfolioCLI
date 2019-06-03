@@ -33,6 +33,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "jquery.terminal": "^2.6.2",
     "popper.js": "^1.15.0"
   }
 }

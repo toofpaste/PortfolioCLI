@@ -4,6 +4,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
+    externals: {
+        jquery: 'jQuery',
+        jqueryTerminal: 'jQuery.terminal'
+      },
     mode: 'development',
     entry: './src/main.js',
     output: {
@@ -23,7 +27,7 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery',
+            jQuery: 'jquery',            
             'window.jQuery': 'jquery',
             tether: 'tether',
             Tether: 'tether',
