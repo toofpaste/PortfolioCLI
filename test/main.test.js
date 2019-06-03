@@ -1,9 +1,83 @@
-import { add } from '../src/functions';
+import Contagion from '../src/viral';
+import City from '../src/city';
+import World from '../src/world';
+import {generateTownName} from '../src/world';
 
-test('adds 1 + 2 to equal 3', () => {
-    expect(add(1, 2)).toBe(3);    
+describe("City Tests", function () {
+
+    test('City Constructor', () => {
+        let portland = new City({
+            name: "Portland",
+            area: 147,
+            waterCoverage: .6
+        })
+        expect(portland.name).toBe("Portland");
+        expect(portland.area).toBe(147);
+        expect(portland.waterCoverage).toBe(.6);
+        expect(portland.population).toBe(1000000);
+    });
 });
 
-test('adds 5 + 5 to equal 10', () => {
-    expect(add(5, 5)).toBe(10);
+describe("World Tests", function () {
+    let world;
+
+
+    beforeEach(() => {
+        let portland = new City({
+            name: "Portland",
+            area: 147,
+            waterCoverage: .6
+        });
+        let sanFran = new City({
+            name: "San Fransisco",
+            area: 254,
+            waterCoverage: .7
+        });
+        let ebola = new Contagion({
+            name: "Ebola",
+            halfLife: 15,
+            spread: "Airborn",
+            catch: .25
+        });
+        world = new World({
+            cities: [portland, sanFran],
+            diseases: [ebola]
+        });
+    });
+
+    test('World Constructor', () => {
+
+        expect(world.cities[0].name).toBe("Portland");
+        expect(world.cities[1].name).toBe("San Fransisco");
+        expect(world.diseases[0].name).toBe("Ebola");
+
+    });
+
+});
+
+
+describe("Random Tests", function () {
+
+    test('Create random name for towns', () => {
+        let name = generateTownName();        
+        expect(name).toMatch("n");
+
+    });
+});
+
+describe("Contagion Tests", function () {
+
+    test('Contagion Constructor', () => {
+        let ebola = new Contagion({
+            name: "Ebola",
+            halfLife: 15,
+            spread: "Airborn",
+            catch: .25
+        });
+        expect(ebola.name).toBe("Ebola");
+        expect(ebola.halfLife).toBe(15);
+        expect(ebola.spread).toBe("Airborn");
+        expect(ebola.catch).toBe(.25);
+        expect(ebola.type).toBe("Viral");
+    });
 });
