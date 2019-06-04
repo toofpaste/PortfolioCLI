@@ -8,7 +8,7 @@ export default class World {
         this.contagions = [];
         
         if (!args || !('cities' in args)) {
-            let cityCount = GetRandom(10, 16)
+            let cityCount = GetRandom(2, 6)
             for (let i = 1; i <= cityCount; i++) {
                 this.cities.push(new City({
                     population: GetRandom(5, 2500) * 1000,

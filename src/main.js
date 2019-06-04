@@ -19,18 +19,6 @@ let intro =
      ░   ░     ░        ░           ░      ░  ░  ░   ░              ░             ░  ░   ░     
     ░                                                                                          
 `;
-
-// intro =
-// `
-// ▄▀▀▄ ▄▀▀▄  ▄▀▀█▀▄    ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▄▀▀▄  ▄▀▀▀▀▄      ▄▀▀▄ ▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄ ▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄ 
-// █   █    █ █   █  █  █   █   █ █   █    █ █ █   ▐     █  █   ▄▀ █   █    █ █  █ █ █ █    █  ▐ ▐  ▄▀   ▐ █   █   █ 
-// ▐  █    █  ▐   █  ▐  ▐  █▀▀█▀  ▐  █    █     ▀▄       ▐  █▄▄▄█  ▐  █    █  ▐  █  ▀█ ▐   █       █▄▄▄▄▄  ▐  █▀▀█▀  
-//    █   ▄▀      █      ▄▀    █    █    █   ▀▄   █         █   █    █    █     █   █     █        █    ▌   ▄▀    █  
-//     ▀▄▀     ▄▀▀▀▀▀▄  █     █      ▀▄▄▄▄▀   █▀▀▀         ▄▀  ▄▀     ▀▄▄▄▄▀  ▄▀   █    ▄▀        ▄▀▄▄▄▄   █     █   
-//            █       █ ▐     ▐               ▐           █   █               █    ▐   █          █    ▐   ▐     ▐   
-//            ▐       ▐                                   ▐   ▐               ▐        ▐          ▐                  
-// `;
-
 var updateLines = [];
 
 var scanlines = $('.scanlines');
@@ -41,8 +29,6 @@ var term = $('#term').terminal(function (command, term) {
     term.disable();
   } else if (command !== '') {
     processCommand(command, term);
-    //term.echo(command);
-    //term.update(2, "[[b;#fff;]Hello]")
   }
 }, {
     name: 'js_demo',
@@ -86,7 +72,8 @@ function processCommand(cmd, term) {
         term.echo(`[[b;#ce2f2f;]${i.name}]: ${i.infected}`);
         updateLines.push({
           id: term.last_index(),
-          city: city.name
+          city: city.name,
+          infection: i.name
         })
       });
 
@@ -99,26 +86,24 @@ function processCommand(cmd, term) {
 function termUpdate() {
   updateLines.forEach(l => {
 
-    let sick = 0;
     let city = window.world.cities.filter(c => c.name === l.city)[0];
+    let infection = city.infected.filter(i => i.name === l.infection)[0];
     let pop = city.population;
 
-    city.infected.forEach(i => {
-    
+
     let color = "";
-    if (i.infected < pop * 0.20) {
+    if (infection.infected < pop * 0.20) {
       color = "#0ab864"//Green
     }
-    if (i.infected > pop * 0.50) {
+    if (infection.infected > pop * 0.50) {
       color = "#EEFC12"//Yellow
     }
-    if (i.infected > pop * 0.90) {
+    if (infection.infected > pop * 0.90) {
       color = "#ce2f2f"//Red
-    }    
-      term.update(l.id, `[[b;#ce2f2f;]${i.name}]: [[b;${color};]${i.infected}]`);      
-    });
-
+    }
+    term.update(l.id, `[[b;#ce2f2f;]${infection.name}]: [[b;${color};]${infection.infected}]`);
   });
+
 }
 
 setInterval(() => {
