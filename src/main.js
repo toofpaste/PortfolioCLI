@@ -60,11 +60,11 @@ function set_size() {
 }
 
 
-function processCommand(cmd, term) {
-  if (cmd == "status") {
+function processCommand(command, term) {
+  let cmd = command.split(" ");
+  if (cmd[0] == "status") {
     window.world.cities.forEach(city => {
       let sick = "";
-
       term.echo(`[[b;#fff;]Name:] ${city.name}`);
       term.echo(`Population: ${city.population}${sick > 0 ? ` / [[b;#EEFC12;]${sick}]` : ``}`);
 
@@ -80,7 +80,13 @@ function processCommand(cmd, term) {
     });
     return;
   }
-
+  if (cmd[0] == "flyto") {
+    if(window.world.cities.filter(i => i.name === cmd[1]).length > 0) {
+      term.echo(`[[g;#4daacf;]Flying to ${cmd[1]}]`)
+    } else {
+      term.echo(`[[b;#ce2f2f;]Invalid location. Please input valid destination.]`)
+    }
+  }
 }
 
 function termUpdate() {

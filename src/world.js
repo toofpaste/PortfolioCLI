@@ -3,7 +3,6 @@ import Contagion from "./viral";
 
 export default class World {
     constructor(args) {
-
         this.cities = [];
         this.contagions = [];
         
@@ -21,12 +20,12 @@ export default class World {
             }
         }
         if (!args || !('contagions' in args)) {
-            let contagionCount = GetRandom(2, 4)
+            let contagionCount = GetRandom(2, 40)
             for (let i = 1; i < contagionCount; i++) {
                 this.contagions.push(new Contagion({
                     type: contagionTypes[GetRandom(0, 2)],
                     halfLife: GetRandom(5, 120),
-                    name: `Contagion ${i}`,
+                    nameId: `${i}`,
                     growth: GetRandom(1, 20)
                 }));
             }
@@ -68,7 +67,7 @@ export default class World {
 }
 
 
-let prefix = ["San ", "Por", "Los ", "North ", "Spring", "New ", "West ", "Rich", "Bos", "York", "Cal", "Wash"]
+let prefix = ["San_", "Por", "Los_", "North_", "Spring", "New_", "West_", "Rich", "Bos", "York", "Cal", "Wash"]
 let suffix = ["antonita", "land", "ton", "ville", "mond", "side", "ington", "field"]
 
 let contagionTypes = ["Viral", "Bacterial", "Parasitical"]
@@ -84,6 +83,6 @@ export function generateTownName() {
 }
 
 
-function GetRandom(min, max) {
+export function GetRandom(min, max) {
     return min + Math.floor(Math.random() * Math.floor((max + 1) - min));
 }

@@ -6,9 +6,6 @@ export default class City {
         //area in sq miles
         this.area = 150;
         this.waterCoverage = .3;
-        this.connections = {};
-        this.lat = 0;
-        this.long = 0;
         this.infected = [];        
         Object.assign(this, args);
     }
