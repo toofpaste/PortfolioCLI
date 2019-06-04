@@ -26,7 +26,8 @@ export default class World {
                 this.contagions.push(new Contagion({
                     type: contagionTypes[GetRandom(0, 2)],
                     halfLife: GetRandom(5, 120),
-                    name: `Contagion ${i}`
+                    name: `Contagion ${i}`,
+                    growth: GetRandom(1, 20)
                 }));
             }
 
@@ -53,8 +54,13 @@ export default class World {
         for (let c = 0; c < this.cities.length; c++) {
             let city = this.cities[c];
             for (let i = 0; i < city.infected.length; i++) {
-                let infection = city.infected[i];                
-                infection.infected *= 2;
+                let infection = city.infected[i];
+                let contagion = this.contagions.filter(con => con.name === city.infected[i].name)[0];                
+                infection.infected += GetRandom(1, contagion.growth) * 1 + Math.floor(infection.infected / 1000);
+
+                if(infection.infected > city.population) {
+                    infection.infected = city.population;
+                }
             }
         }
     }
