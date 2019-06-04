@@ -4,7 +4,7 @@
     font-family: 'Courier New', monospace;
     white-space: pre;    
     background-color: rgba(0, 0, 0, 0) !important;
-    color: black !important;
+    color: rgb(0, 0, 0) !important;
     text-shadow: #0c7b46 0px 3.2px 16px;    
   }
 

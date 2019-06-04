@@ -82,7 +82,7 @@ function processCommand(command, term) {
   }
   if (cmd[0] == "flyto") {
     if(window.world.cities.filter(i => i.name === cmd[1]).length > 0) {
-      term.echo(`[[g;#4daacf;]Flying to ${cmd[1]}]`)
+      term.echo(`[[b;#549af5;]Flying to ${cmd[1]}]`)
     } else {
       term.echo(`[[b;#ce2f2f;]Invalid location. Please input valid destination.]`)
     }
