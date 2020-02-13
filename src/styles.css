@@ -1,12 +1,98 @@
 .terminal-output div:first-child div span {
     display: block;
-    margin: 0px;    
+    margin: 0px;
     font-family: 'Courier New', monospace;
     white-space: pre;    
     background-color: rgba(0, 0, 0, 0) !important;
-    color: rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
     text-shadow: #0c7b46 0px 3.2px 16px;    
   }
+.topnav {
+    background-color: #cbd0cc;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #2b2b2b;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #414041;
+    color: #0c7b46;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #414041;
+    color: #0c7b46;
+}
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    border: 1px solid #b2b7b3;
+    margin-right: 2px;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: #2b2b2b;
+    font-weight: bold;
+    padding: 5px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #414041;
+    color: #0c7b46;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #cbd0cc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size:12px;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
  /*
  * style based on http://js13kgames.com/entries/lost-in-cyberspace
@@ -20,6 +106,7 @@
    height: 100vh;
    --background: #031e11;
    --size: 1.5;
+     border-left: 7px solid #cbd0cc;
  }
 
  /* to see yourself like in a mirror */
@@ -138,8 +225,8 @@
 https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 */
  .scanlines {
-   top: 0;
-   left: 0;
+   top:30px;
+   left: 7px;
    height: 100%;
    width: 100%;
    background: linear-gradient(to bottom,
