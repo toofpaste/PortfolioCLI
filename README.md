@@ -31,6 +31,7 @@ A Command Line style portfolio website.
 To run the application, open your machine's terminal and type in the following commands within the main project directory
 
 `npm install` This will allow the viewer of this project to have access to the CLI (command line interface) for webpack.
+
 `npm run start`
 This will watch the file changes in `./src` and automatically build the bundle with dev build (not minified). This is a continuous monitoring so to stop it just type the key combination `Ctrl + C` within the terminal.
 
