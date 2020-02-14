@@ -9,10 +9,11 @@ module.exports = {
         jqueryTerminal: 'jQuery.terminal'
       },
     mode: 'development',
-    entry: './src/main.js',
+    entry: './src/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: __dirname,
+        publicPath: '/'
     },
     devtool: 'eval-source-map',
     devServer: {
