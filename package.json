@@ -8,8 +8,10 @@
     "build": "webpack",
     "buildDist": "webpack --mode production",
     "prestart": "webpack",
-    "start": "webpack-dev-server --open",
-    "lint": "eslint src/**/*.js & exit 0"
+    "dev": "webpack-dev-server --open",
+    "lint": "eslint src/**/*.js & exit 0",
+    "start": "node server.js", 
+    "heroku-postbuild": "webpack -p"
   },
   "author": "",
   "license": "ISC",
