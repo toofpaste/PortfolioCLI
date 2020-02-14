@@ -11,7 +11,11 @@
     background-color: #cbd0cc;
     overflow: hidden;
 }
-
+#exitBar{
+    background-color: #555a56;
+    height:16px;
+    width: 100vw;
+}
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
@@ -92,7 +96,19 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
+#exitBar{
+    padding-left:5px;
+    padding-top:2px;
+}
+#img1 {
+    height: 15px;
+}
+#img2 {
+    height: 15px;
+}
+#img3 {
+    height: 15px;
+}
 
  /*
  * style based on http://js13kgames.com/entries/lost-in-cyberspace
@@ -100,10 +116,12 @@
  body {
    margin: 0;
    background: black;
+     overflow-y: hidden;
  }
 
  #term {
-   height: 100vh;
+
+   height: 95vh;
    --background: #031e11;
    --size: 1.5;
      border-left: 7px solid #cbd0cc;
@@ -225,7 +243,7 @@
 https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 */
  .scanlines {
-   top:30px;
+   top:45px;
    left: 7px;
    height: 100%;
    width: 100%;
