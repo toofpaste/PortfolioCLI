@@ -1,4 +1,4 @@
-# Virus Hunter
+# Portfolio CLI
 <pre>
   _____           _    __      _ _       
  |  __ \         | |  / _|    | (_)      
