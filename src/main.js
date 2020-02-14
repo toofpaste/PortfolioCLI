@@ -103,7 +103,6 @@ let intro12A = "MjLarragueta@gmail.com";
 let help = false;
 let i = 0;
 let printComm = "";
-let printCommA = "";
 function resetPrint(){
   currentLine++;
   i = 0;
@@ -150,20 +149,6 @@ function printLineFaster(thisLine, words, color){
     }
 
   }, 15);
-}
-function printSameLine(thisLine, words, prevWord, color, colorPrev){
-  setTimeout(() => {
-    if(help && i < words.length){
-      printComm += words[i];
-        term.update(thisLine, `[[b;${colorPrev};${prevWord}]` + `[[b;${color};]${printComm}]`);
-      i++;
-      printSameLine(thisLine, words, prevWord, color, colorPrev);
-    }else {
-      // i = 0;
-      help = false;
-    }
-
-  }, 30);
 }
 function printSameLineFaster(thisLine, words, prevWord, color, colorPrev){
   setTimeout(() => {
