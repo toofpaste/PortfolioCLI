@@ -10,7 +10,7 @@
     "prestart": "webpack",
     "dev": "webpack-dev-server --open",
     "lint": "eslint src/**/*.js & exit 0",
-    "start": "node server.js", 
+    "start": "node main.js",
     "heroku-postbuild": "webpack -p"
   },
   "author": "",
