@@ -584,7 +584,7 @@ function processCommand(command, term) {
         resetPrint();
         printLineFaster(currentLine, "  -Using IBM Watson it analyzes a user's tweets and generates a personality profile for them. The Connect 4 AI then uses those personality traits against them in a game of Connect 4", white);
 
-      }, 4300);
+      }, 4600);
 
 
       setTimeout(() => {
@@ -592,53 +592,53 @@ function processCommand(command, term) {
         currentLine++;
         resetPrint();
         printLine(currentLine, "Invisible-Thread-Website", yellow);
-      }, 8100);
+      }, 9000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/Invisible-Thread-Website", white);
-      }, 9000);
+      }, 9900);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 10200);
+      }, 11100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using React-THREE-Fiber. A React wrapper for THREE.js", white);
 
-      }, 11100);
+      }, 12000);
 
       setTimeout(() => {
         term.echo(" ");
         currentLine++;
         resetPrint();
         printLine(currentLine, "MultiPlayer Tetris", yellow);
-      }, 12300);
+      }, 13200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/MPTetris", white);
-      }, 13100);
+      }, 14000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 14300);
+      }, 15200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using Javascript, Node.js with CSS and HTML", white);
 
-      }, 15100);
+      }, 16000);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -A simple Tetris game that drops block shapes down and board while a user tries to move the shapes around to fit the other shapes on. The player tryies to completely fill whole rows of blocks in order to remove them from the game while avoiding filling the game board all the way to the top.", white);
       wait = false;
-      }, 17100);
+      }, 18000);
     }else {
       wait = true;
       resetPrint();
