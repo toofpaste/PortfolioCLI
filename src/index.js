@@ -639,6 +639,15 @@ function processCommand(command, term) {
         printLineFaster(currentLine, "  -A simple Tetris game that drops block shapes down and board while a user tries to move the shapes around to fit the other shapes on. The player tryies to completely fill whole rows of blocks in order to remove them from the game while avoiding filling the game board all the way to the top.", white);
       wait = false;
       }, 16800);
+    }else {
+      wait = true;
+      resetPrint();
+      printLineFaster(currentLine, "UNKNOWN COMMAND", red);
+      setTimeout(()=>{
+        resetPrint();
+        printLineFaster(currentLine, "For a list of commands type ''hekp''", white);
+        wait = false;
+      }, 800)
     }
   }
 }
