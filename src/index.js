@@ -609,36 +609,36 @@ function processCommand(command, term) {
         resetPrint();
         printLineFaster(currentLine, "  -Written using React-THREE-Fiber. A React wrapper for THREE.js", white);
 
-      }, 12000);
+      }, 12300);
 
       setTimeout(() => {
         term.echo(" ");
         currentLine++;
         resetPrint();
         printLine(currentLine, "MultiPlayer Tetris", yellow);
-      }, 13200);
+      }, 14100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/MPTetris", white);
-      }, 14000);
+      }, 14900);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 15200);
+      }, 16100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using Javascript, Node.js with CSS and HTML", white);
 
-      }, 16000);
+      }, 16900);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -A simple Tetris game that drops block shapes down and board while a user tries to move the shapes around to fit the other shapes on. The player tryies to completely fill whole rows of blocks in order to remove them from the game while avoiding filling the game board all the way to the top.", white);
       wait = false;
-      }, 18000);
+      }, 18900);
     }else {
       wait = true;
       resetPrint();
