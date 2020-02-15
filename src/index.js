@@ -334,13 +334,13 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "About: ", yellow);
-      }, 7400);//6100
+      }, 7700);//6100
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "About me", "About: ", white, yellow);
       wait = false;
-      }, 7900);//6500
+      }, 8100);//6500
 
       // return;
     } else if (cmd[0] == "education") {
