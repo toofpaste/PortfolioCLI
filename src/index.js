@@ -645,7 +645,7 @@ function processCommand(command, term) {
       printLineFaster(currentLine, "UNKNOWN COMMAND", red);
       setTimeout(()=>{
         resetPrint();
-        printLineFaster(currentLine, "For a list of commands type ''hekp''", white);
+        printLineFaster(currentLine, "For a list of commands type ''help''", white);
         wait = false;
       }, 800)
     }
