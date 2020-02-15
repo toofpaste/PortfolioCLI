@@ -297,50 +297,50 @@ function processCommand(command, term) {
         resetPrint();
         printSameLineFaster(currentLine, "Print all of my known programming languages", "Languages: ", white, yellow);
 
-      }, 3300);//2000
+      }, 3600);//2000
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Github: ", yellow);
-      }, 4100);//2600
+      }, 5000);//2600
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Link to my github profile", "Github: ", white, yellow);
-      }, 4600);//3000
+      }, 5500);//3000
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "LinkedIn: ", yellow);
-      }, 5300);//3800
+      }, 6200);//3800
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Link to my LinkedIn profile", "LinkedIn: ", white, yellow);
 
-      }, 5700);//4300
+      }, 6600);//4300
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Projects: ", yellow);
-      }, 6400);//5000
+      }, 7300);//5000
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Links to my 3 favorite projects", "Projects: ", white, yellow);
 
-      }, 6900);//5400
+      }, 7800);//5400
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "About: ", yellow);
-      }, 7700);//6100
+      }, 8600);//6100
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "About me", "About: ", white, yellow);
       wait = false;
-      }, 8100);//6500
+      }, 9000);//6500
 
       // return;
     } else if (cmd[0] == "education") {
