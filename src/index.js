@@ -477,75 +477,75 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Re-Built website using React, THREE.js, and React-THREE-Fiber  ", white);
-      }, 4900);
+      }, 5200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Built an augmented reality pathfinding android application using Unity and C#", white);
-      }, 6100);
+      }, 7000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Managed Project Workflow and tasks using Trello", white);
-      }, 7900);
+      }, 8800);
 
       setTimeout(() => {
         resetPrint();
         currentLine++;
         term.echo(" ");
         printLineFaster(currentLine, "The Creek Youth Center, Walnut Creek CA", yellow);
-      }, 9100);
+      }, 10000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Title: ", yellow);
-      }, 10100);
+      }, 11000);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Lead Teachers Aide", "Title: ", white, yellow);
-      }, 10600);
+      }, 11500);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Started: ", yellow);
-      }, 11300);
+      }, 12100);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "January 2014", "Started: ", white, yellow);
-      }, 11700);
+      }, 12600);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Ended: ", yellow);
-      }, 12400);
+      }, 13300);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "August 2018", "Ended: ", white, yellow);
-      }, 13100);
+      }, 14000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details", yellow);
-      }, 13700);
+      }, 14600);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Created, planned and executed different learning activities  ", white);
-      }, 14300);
+      }, 15200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Managed and lead groups of 30+ children", white);
 
-      }, 15800);
+      }, 16700);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Created and ran the tech club where students learned how to build and program  arduino based robotics", white);
         wait = false;
-        }, 17300);
+        }, 18200);
     } else if (cmd[0] == "github") {
       resetPrint();
       printLineFaster(currentLine, "https://github.com/toofpaste", red);
