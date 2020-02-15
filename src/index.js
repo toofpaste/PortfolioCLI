@@ -190,74 +190,74 @@ setTimeout(() => {
   resetPrint();
   currentLine--;
   printSameLineFaster(currentLine, intro5A, intro5, white, yellow);
-}, 5650 );
+}, 6150 );
 
 setTimeout(() => {
   resetPrint();
   printLineFaster(currentLine, intro6, yellow);
-}, 6000 );
-setTimeout(() => {
-  resetPrint();
-  currentLine--;
-  printSameLineFaster(currentLine, intro6A, intro6, white, yellow);
-}, 6250 );
-
-setTimeout(() => {
-  resetPrint();
-  printLineFaster(currentLine, intro7, yellow);
 }, 6700 );
 setTimeout(() => {
   resetPrint();
   currentLine--;
+  printSameLineFaster(currentLine, intro6A, intro6, white, yellow);
+}, 6950 );
+
+setTimeout(() => {
+  resetPrint();
+  printLineFaster(currentLine, intro7, yellow);
+}, 7400 );
+setTimeout(() => {
+  resetPrint();
+  currentLine--;
   printSameLineFaster(currentLine, intro7A, intro7, white, yellow);
-}, 7150 );
+}, 7850 );
 
 setTimeout(() => {
   resetPrint();
   printLineFaster(currentLine, intro8, yellow);
-}, 8250 );
+}, 8950 );
 setTimeout(() => {
   resetPrint();
   currentLine--;
   printSameLineFaster(currentLine, intro8A, intro8, white, yellow);
-}, 8500 );
+}, 9200 );
 
 
 setTimeout(() => {
   resetPrint();
   printLineFaster(currentLine, intro9, yellow);
-}, 8900 );
+}, 9600 );
 setTimeout(() => {
   resetPrint();
   currentLine--;
   printSameLineFaster(currentLine, intro9A, intro9, white, yellow);
-}, 9100 );
+}, 9800 );
 
 setTimeout(() => {
   resetPrint();
   printLine(currentLine, introMid, red);
-}, 11500 );
-
-setTimeout(() => {
-  resetPrint();
-  printLineFaster(currentLine, intro11, yellow);
-}, 12000 );
-setTimeout(() => {
-  resetPrint();
-  currentLine--;
-  printSameLineFaster(currentLine, intro11A, intro11, white, yellow);
 }, 12300 );
 
 setTimeout(() => {
   resetPrint();
+  printLineFaster(currentLine, intro11, yellow);
+}, 13000 );
+setTimeout(() => {
+  resetPrint();
+  currentLine--;
+  printSameLineFaster(currentLine, intro11A, intro11, white, yellow);
+}, 13400 );
+
+setTimeout(() => {
+  resetPrint();
   printLineFaster(currentLine, intro12, yellow);
-}, 12600 );
+}, 13900 );
 setTimeout(() => {
   resetPrint();
   currentLine--;
   printSameLineFaster(currentLine, intro12A, intro12, white, yellow);
   wait = false;
-}, 12900 );
+}, 14200 );
 function processCommand(command, term) {
   if(!wait) {
     let cmd = command.split(" ");
@@ -269,78 +269,78 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Education: ", yellow);
-      }, 500);
+      }, 800);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Print all education information", "Education: ", white, yellow);
 
-      }, 800);
+      }, 1100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Work: ", yellow);
-      }, 1600);//700
+      }, 1900);//700
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Print all work experience", "Work: ", white, yellow);
 
-      }, 2000);//900
+      }, 2300);//900
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Languages: ", yellow);
-      }, 2600);//1600
+      }, 2900);//1600
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Print all of my known programming languages", "Languages: ", white, yellow);
 
-      }, 3000);//2000
+      }, 3300);//2000
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Github: ", yellow);
-      }, 3800);//2600
+      }, 4100);//2600
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Link to my github profile", "Github: ", white, yellow);
-      }, 4300);//3000
+      }, 4600);//3000
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "LinkedIn: ", yellow);
-      }, 5000);//3800
+      }, 5300);//3800
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Link to my LinkedIn profile", "LinkedIn: ", white, yellow);
 
-      }, 5400);//4300
+      }, 5700);//4300
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Projects: ", yellow);
-      }, 6100);//5000
+      }, 6400);//5000
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Links to my 3 favorite projects", "Projects: ", white, yellow);
 
-      }, 6500);//5400
+      }, 6900);//5400
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "About: ", yellow);
-      }, 7100);//6100
+      }, 7400);//6100
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "About me", "About: ", white, yellow);
       wait = false;
-      }, 7600);//6500
+      }, 7900);//6500
 
       // return;
     } else if (cmd[0] == "education") {
@@ -350,43 +350,43 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Diablo Valley College, Concord CA - C++", yellow);
-      }, 500);
+      }, 800);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Started: ", yellow);
 
-      }, 1400);
+      }, 1700);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "September, 2014", "Started: ", white, yellow);
 
-      }, 1900);
+      }, 2200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Finished: ", yellow);
 
-      }, 2400);
+      }, 2700);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "June, 2018 ", "Finished: ", white, yellow);
 
-      }, 3000);
+      }, 3300);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Studied: ", yellow);
 
-      }, 3500);
+      }, 3800);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Computer Science", "Studied: ", white, yellow);
 
-      }, 4000);
+      }, 4300);
 
 
       setTimeout(() => {
@@ -395,42 +395,42 @@ function processCommand(command, term) {
         resetPrint();
         printLineFaster(currentLine, "Epicodus, Portland OR - C#/React Track", yellow);
 
-      }, 4700);
+      }, 5000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Started: ", yellow);
 
-      }, 5500);
+      }, 5800);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "March 2019", "Started: ", white, yellow);
 
-      }, 6400);
+      }, 6700);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Finished: ", yellow);
 
-      }, 7000);
+      }, 7300);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "September 2019", "Finished: ", white, yellow);
 
-      }, 7600);
+      }, 7900);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Studied: ", yellow);
 
-      }, 8200);
+      }, 8500);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "C#, .NET, React, Jquery, HTML, CSS, JavaScript, Angular ASP.NET, GIT CLI", "Studied: ", white, yellow);
     wait = false;
-      }, 8800);
+      }, 9100);
     } else if (cmd[0] == "work") {
       wait = true;
       resetPrint();
@@ -438,114 +438,114 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Invisible Thread, Portland OR", yellow);
-      }, 500);
+      }, 800);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Title: ", yellow);
-      }, 1200);
+      }, 1500);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Junior Developer", "Title: ", white, yellow);
-      }, 1700);
+      }, 2000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Started: ", yellow);
-      }, 2300);
+      }, 2600);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "August 2019", "Started: ", white, yellow);
-      }, 2800);
+      }, 3100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Ended: ", yellow);
-      }, 3300);
+      }, 3600);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "October 2019", "Ended: ", white, yellow);
-      }, 3800);
+      }, 4100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details", yellow);
-      }, 4200);
+      }, 4500);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Re-Built website using React, THREE.js, and React-THREE-Fiber  ", white);
-      }, 4600);
+      }, 4900);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Built an augmented reality pathfinding android application using Unity and C#", white);
-      }, 5800);
+      }, 6100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Managed Project Workflow and tasks using Trello", white);
-      }, 7600);
+      }, 7900);
 
       setTimeout(() => {
         resetPrint();
         currentLine++;
         term.echo(" ");
         printLineFaster(currentLine, "The Creek Youth Center, Walnut Creek CA", yellow);
-      }, 8800);
+      }, 9100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Title: ", yellow);
-      }, 9800);
+      }, 10100);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "Lead Teachers Aide", "Title: ", white, yellow);
-      }, 10300);
+      }, 10600);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Started: ", yellow);
-      }, 11000);
+      }, 11300);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "January 2014", "Started: ", white, yellow);
-      }, 11400);
+      }, 11700);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Ended: ", yellow);
-      }, 12100);
+      }, 12400);
       setTimeout(() => {
         currentLine--;
         resetPrint();
         printSameLineFaster(currentLine, "August 2018", "Ended: ", white, yellow);
-      }, 12800);
+      }, 13100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details", yellow);
-      }, 13400);
+      }, 13700);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Created, planned and executed different learning activities  ", white);
-      }, 14000);
+      }, 14300);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Managed and lead groups of 30+ children", white);
 
-      }, 15500);
+      }, 15800);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Created and ran the tech club where students learned how to build and program  arduino based robotics", white);
         wait = false;
-        }, 17000);
+        }, 17300);
     } else if (cmd[0] == "github") {
       resetPrint();
       printLineFaster(currentLine, "https://github.com/toofpaste", red);
@@ -565,26 +565,26 @@ function processCommand(command, term) {
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/ReactWatsonAPIWorking", white);
-      }, 900);
+      }, 1200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 2000);
+      }, 2300);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using React for the front end and Node.js to access the watson API ", white);
 
-      }, 2600);
+      }, 2900);
 
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Using IBM Watson it analyzes a user's tweets and generates a personality profile for them. The Connect 4 AI then uses those personality traits against them in a game of Connect 4", white);
 
-      }, 4000);
+      }, 4300);
 
 
       setTimeout(() => {
@@ -592,53 +592,53 @@ function processCommand(command, term) {
         currentLine++;
         resetPrint();
         printLine(currentLine, "Invisible-Thread-Website", yellow);
-      }, 7800);
+      }, 8100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/Invisible-Thread-Website", white);
-      }, 8700);
+      }, 9000);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 9900);
+      }, 10200);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using React-THREE-Fiber. A React wrapper for THREE.js", white);
 
-      }, 10800);
+      }, 11100);
 
       setTimeout(() => {
         term.echo(" ");
         currentLine++;
         resetPrint();
         printLine(currentLine, "MultiPlayer Tetris", yellow);
-      }, 12000);
+      }, 12300);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "https://github.com/toofpaste/MPTetris", white);
-      }, 12800);
+      }, 13100);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "Details: ", yellow);
 
-      }, 14000);
+      }, 14300);
 
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -Written using Javascript, Node.js with CSS and HTML", white);
 
-      }, 14800);
+      }, 15100);
       setTimeout(() => {
         resetPrint();
         printLineFaster(currentLine, "  -A simple Tetris game that drops block shapes down and board while a user tries to move the shapes around to fit the other shapes on. The player tryies to completely fill whole rows of blocks in order to remove them from the game while avoiding filling the game board all the way to the top.", white);
       wait = false;
-      }, 16800);
+      }, 17100);
     }else {
       wait = true;
       resetPrint();
@@ -647,7 +647,7 @@ function processCommand(command, term) {
         resetPrint();
         printLineFaster(currentLine, "For a list of commands type ''help''", white);
         wait = false;
-      }, 800)
+      }, 1100)
     }
   }
 }
