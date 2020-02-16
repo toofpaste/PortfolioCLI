@@ -93,7 +93,7 @@ $(document).ready(function(){
 
 function setAllLine(current) {
   if(checkMob === 0){
-    current += 1;
+    current += 2;
   }
     for (var xx = 0; xx < current; xx++) {
       if (allIntro[xx].mess2 == undefined) {
