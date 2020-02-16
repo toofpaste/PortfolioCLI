@@ -88,6 +88,27 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
+function setAllLine(current) {
+    for (var xx = 0; xx < current; xx++) {
+      if (allIntro[xx].mess2 == undefined) {
+        term.update(xx + 1, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]`)
+      } else {
+        term.update(xx + 1, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]` + `[[b;${allIntro[xx].color2};]${allIntro[xx].mess2}]`);
+      }
+    }
+}
+setTimeout(()=>{
+  startUp();
+}, 1500);
+function startUp(){
+  setInterval(()=>{
+    if(waitForUpdate) {
+      setAllLine(term.last_index() - 1);
+    }
+  }, 100)
+}
+let waitForUpdate = true;
+
 function set_size() {
   // for window height of 170 it should be 2s
   var height = $(window).height();
@@ -157,6 +178,7 @@ function resetCounts(){
   runtime = true;
 }
 function testTime(allIntro){
+  waitForUpdate = false;
   if(countLoops >= allIntro.length){
     runtime = false;
     wait = false;
@@ -190,7 +212,7 @@ function testTime(allIntro){
 
         }, time2 + 100);
       }
-
+      waitForUpdate = true;
     }, time1);
 
   }
