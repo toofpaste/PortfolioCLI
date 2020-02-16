@@ -13,7 +13,7 @@ const ele2 = document.getElementById('img2');
 ele2.src = Max;
 const ele3 = document.getElementById('img3');
 ele3.src = Min;
-let intro = ``;
+let intro = `I recommend accessing this site on a computer. There are still mobile version bugs`;
 let currentLine = 0;
 let checkMob = 1;
 if(window.innerWidth >= 1007) {
@@ -29,7 +29,7 @@ if(window.innerWidth >= 1007) {
                                                                  __/ |                    
                                                                 |___/                                                                                      
 `;
-} else checkMob = 0;
+}
 
 let wait = false;
 var scanlines = $('.scanlines');
@@ -92,13 +92,10 @@ $(document).ready(function(){
 });
 
 function setAllLine(current) {
-  if(checkMob === 0){
-    current += 2;
-  }
     for (var xx = 0; xx < current; xx++) {
       if (allIntro[xx].mess2 == undefined) {
         term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]`)
-      } else {
+      } else if(allIntro[xx].mess2 !== undefined) {
         term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]` + `[[b;${holdHistory[xx].color2};]${holdHistory[xx].mess2}]`);
       }
     }
@@ -195,7 +192,7 @@ function testTime(allIntro){
     time1 = allIntro[countLoops - 1].mess.length * 30;
   }else if(allIntro[countLoops - 1].mess === " "){
     time1 = 50;
-  }else {
+  }else if(allIntro[countLoops - 1].mess2 !== undefined){
     time1 = allIntro[countLoops - 1].mess2.length * waitTime;
   }
   if(runtime){
@@ -205,7 +202,7 @@ function testTime(allIntro){
         printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
         countLoops++;
         testTime(allIntro);
-      }else {
+      }else if(allIntro[countLoops].mess2 !== undefined){
         resetPrint();
         printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
         time2 = allIntro[countLoops].mess.length * waitTime;
