@@ -94,9 +94,9 @@ $(document).ready(function(){
 function setAllLine(current) {
     for (var xx = 0; xx < current; xx++) {
       if (allIntro[xx].mess2 == undefined) {
-        term.update(xx + checkMob, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]`)
+        term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]`)
       } else {
-        term.update(xx + checkMob, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]` + `[[b;${allIntro[xx].color2};]${allIntro[xx].mess2}]`);
+        term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]` + `[[b;${holdHistory[xx].color2};]${holdHistory[xx].mess2}]`);
       }
     }
 }
@@ -105,7 +105,7 @@ setTimeout(()=>{
 }, 1500);
 function startUp(){
   setInterval(()=>{
-    if(waitForUpdate && checkMob !== 0) {
+    if(waitForUpdate) {
       setAllLine(term.last_index() - 1);
     }
   }, 100)
