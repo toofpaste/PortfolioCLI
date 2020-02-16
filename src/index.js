@@ -15,7 +15,9 @@ const ele3 = document.getElementById('img3');
 ele3.src = Min;
 let intro = ``;
 let currentLine = 0;
+let checkMob = 1;
 if(window.innerWidth >= 1007) {
+  checkMob = 0;
   intro =
     `
   __  __ _      _                _   _                                           _        
@@ -88,12 +90,13 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
+if()
 function setAllLine(current) {
     for (var xx = 0; xx < current; xx++) {
       if (allIntro[xx].mess2 == undefined) {
-        term.update(xx + 1, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]`)
+        term.update(xx + checkMob, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]`)
       } else {
-        term.update(xx + 1, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]` + `[[b;${allIntro[xx].color2};]${allIntro[xx].mess2}]`);
+        term.update(xx + checkMob, `[[b;${allIntro[xx].color};]${allIntro[xx].mess}]` + `[[b;${allIntro[xx].color2};]${allIntro[xx].mess2}]`);
       }
     }
 }
