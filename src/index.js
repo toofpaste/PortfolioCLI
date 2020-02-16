@@ -90,7 +90,7 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
-if()
+
 function setAllLine(current) {
     for (var xx = 0; xx < current; xx++) {
       if (allIntro[xx].mess2 == undefined) {
