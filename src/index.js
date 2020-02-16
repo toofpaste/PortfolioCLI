@@ -17,7 +17,7 @@ let intro = ``;
 let currentLine = 0;
 let checkMob = 1;
 if(window.innerWidth >= 1007) {
-  checkMob = 0;
+
   intro =
     `
   __  __ _      _                _   _                                           _        
@@ -29,7 +29,7 @@ if(window.innerWidth >= 1007) {
                                                                  __/ |                    
                                                                 |___/                                                                                      
 `;
-} else currentLine--;
+} else checkMob = 0;
 
 let wait = false;
 var scanlines = $('.scanlines');
@@ -171,7 +171,6 @@ let countLoops = 0;
 let waitTime = 30;
 let holdHistory = [];
 function resetPrint(){
-  currentLine++;
   i = 0;
   printComm = "";
   help = true;
