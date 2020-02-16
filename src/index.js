@@ -200,12 +200,12 @@ function testTime(allIntro){
     setTimeout(()=>{
       if(allIntro[countLoops].mess2 == undefined){
         resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
+        printLineFaster(term.last_index() + checkMob, allIntro[countLoops].mess, allIntro[countLoops].color);
         countLoops++;
         testTime(allIntro);
       }else {
         resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
+        printLineFaster(term.last_index() + checkMob, allIntro[countLoops].mess, allIntro[countLoops].color);
         time2 = allIntro[countLoops].mess.length * waitTime;
         setTimeout(() => {
           resetPrint();
