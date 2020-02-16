@@ -48,10 +48,7 @@ var tv = $('.tv');
     softPause: false,
     onInit: function () {
       set_size();
-      //startIntro();
-      // testTime();
-      //this.echo('Type [[b;#fff;]camera()] to get video and [[b;#fff;]pause()]/[[b;#fff;]play()] to stop/play');
-    },
+      },
     prompt: 'V://> ',
     greetings: intro
   });
@@ -104,28 +101,6 @@ let help = false;
 let i = 0;
 let printComm = "";
 
-
-function printLine(thisLine, words, color){
-
-  setTimeout(() => {
-  if(help && i < words.length){
-    printComm += words[i];
-    if(i === 0){
-
-      term.echo(`[[b;${color};]${printComm}]`);
-    }else {
-      term.update(thisLine, `[[b;${color};]${printComm}]`);
-    }
-    i++;
-    printLine(thisLine, words, color);
-  }else {
-    // i = 0;
-    help = false;
-  }
-
-  }, 30);
-}
-
 function printLineFaster(thisLine, words, color){
 
   setTimeout(() => {
@@ -164,6 +139,63 @@ function printSameLineFaster(thisLine, words, prevWord, color, colorPrev){
 let yellow = "#EEFC12";
 let red = "#ce2f2f";
 let white = "#fff";
+
+let runtime = true;
+let time1 = 500;
+let time2 = 0;
+let countLoops = 0;
+let waitTime = 20;
+let holdHistory = [];
+function resetPrint(){
+  currentLine++;
+  i = 0;
+  printComm = "";
+  help = true;
+}
+function resetCounts(){
+  countLoops = 0;
+  runtime = true;
+}
+function testTime(allIntro){
+  if(countLoops >= allIntro.length){
+    console.log(holdHistory);
+    runtime = false;
+    wait = false;
+  }
+  if(countLoops === 0){
+    holdHistory = holdHistory.concat(allIntro);
+    time1 = 500;
+  }else if(allIntro[countLoops - 1].mess2 == undefined && allIntro[countLoops - 1].mess !== " "){
+    time1 = allIntro[countLoops - 1].mess.length * 20;
+  }else if(allIntro[countLoops - 1].mess === " "){
+    time1 = 50;
+  }else {
+    time1 = allIntro[countLoops - 1].mess2.length * waitTime;
+  }
+  if(runtime){
+    setTimeout(()=>{
+      if(allIntro[countLoops].mess2 == undefined){
+        resetPrint();
+        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
+        countLoops++;
+        testTime(allIntro);
+      }else {
+        resetPrint();
+        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
+        time2 = allIntro[countLoops].mess.length * waitTime;
+        setTimeout(() => {
+          resetPrint();
+          printSameLineFaster(term.last_index(), allIntro[countLoops].mess2, allIntro[countLoops].mess, allIntro[countLoops].color2, allIntro[countLoops].color);
+          countLoops++;
+          testTime(allIntro);
+
+        }, time2 + 100);
+      }
+
+    }, time1);
+
+  }
+}
 let allIntro = [
   {
     mess: "Hello And Welcome To My Portfolio",
@@ -197,7 +229,7 @@ let allIntro = [
   {
     mess: "Willing to relocate: ",
     color: yellow,
-    mess2: "Yes, in the Oregon Area || Willing to work remotely",
+    mess2: "Yes, within the state of Oregon || Willing to work remotely",
     color2: white
   },
   {
@@ -228,77 +260,7 @@ let allIntro = [
     mess2: "MjLarragueta@gmail.com",
     color2: white
   }
-]
-function setAllLine(upto, sentList) {
-  for(var xx = 0; xx < upto -1; xx++){
-      if(sentList[xx].mess2 == undefined){
-        term.update(upto - 1, `[[b;${sentList[xx].color};]${sentList[xx].mess}]`)
-      }else {
-        term.update(upto - 1, `[[b;${sentList[xx].color};]${sentList[xx].mess}]` + `[[b;${sentList[xx].color2};]${sentList[xx].mess2}]`);
-      }
-  }
-}
-let runtime = true;
-let time1 = 500;
-let time2 = 0;
-let countLoops = 0;
-let waitTime = 20;
-let holdHistory = [];
-function resetPrint(){
-  currentLine++;
-  i = 0;
-  printComm = "";
-  help = true;
-}
-function resetCounts(){
-  countLoops = 0;
-  runtime = true;
-}
-function testTime(allIntro){
-  if(countLoops >= allIntro.length){
-    runtime = false;
-    wait = false;
-    //setAllLine(term.last_index() - 1, holdHistory);
-    // console.log(holdHistory);
-    // console.log(term.last_index());
-  }
-  if(countLoops === 0){
-    holdHistory = holdHistory.concat(allIntro);
-    time1 = 500;
-  }else if(allIntro[countLoops - 1].mess2 == undefined && allIntro[countLoops - 1].mess !== " "){
-    time1 = allIntro[countLoops - 1].mess.length * 20;
-  }else if(allIntro[countLoops - 1].mess === " "){
-    time1 = 50;
-  }else {
-    time1 = allIntro[countLoops - 1].mess2.length * waitTime;
-  }
-  if(runtime){
-    setTimeout(()=>{
-      if(allIntro[countLoops].mess2 == undefined){
-        resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
-        setAllLine(countLoops, holdHistory);
-        countLoops++;
-        testTime(allIntro);
-      }else {
-        resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
-        time2 = allIntro[countLoops].mess.length * waitTime;
-        setTimeout(() => {
-          resetPrint();
-          printSameLineFaster(term.last_index(), allIntro[countLoops].mess2, allIntro[countLoops].mess, allIntro[countLoops].color2, allIntro[countLoops].color);
-          setAllLine(countLoops, holdHistory);
-          countLoops++;
-          testTime(allIntro);
-
-        }, time2 + 100);
-      }
-
-
-    }, time1);
-
-  }
-}
+];
 let helpCommand = [
   {
     mess: "All Commands: ",
