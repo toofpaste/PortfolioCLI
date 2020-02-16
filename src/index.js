@@ -144,7 +144,7 @@ let runtime = true;
 let time1 = 500;
 let time2 = 0;
 let countLoops = 0;
-let waitTime = 20;
+let waitTime = 30;
 let holdHistory = [];
 function resetPrint(){
   currentLine++;
@@ -158,7 +158,6 @@ function resetCounts(){
 }
 function testTime(allIntro){
   if(countLoops >= allIntro.length){
-    console.log(holdHistory);
     runtime = false;
     wait = false;
   }
@@ -166,7 +165,7 @@ function testTime(allIntro){
     holdHistory = holdHistory.concat(allIntro);
     time1 = 500;
   }else if(allIntro[countLoops - 1].mess2 == undefined && allIntro[countLoops - 1].mess !== " "){
-    time1 = allIntro[countLoops - 1].mess.length * 20;
+    time1 = allIntro[countLoops - 1].mess.length * 30;
   }else if(allIntro[countLoops - 1].mess === " "){
     time1 = 50;
   }else {
