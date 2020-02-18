@@ -19,7 +19,7 @@ const ele4 = document.getElementById('img4');
 const ele5 = document.getElementById('img5');
 ele4.src = off;
 ele5.src = on;
-let intro = `I recommend accessing this site on a computer. There are still mobile version bugs`;
+let intro = ` `;
 if(window.innerWidth >= 1007) {
 
   intro =
