@@ -41,6 +41,8 @@ var tv = $('.tv');
 var term = $('#term').terminal(function (command, term) {
   if (command.match(/^\s*exit\s*$/)) {
     $('.tv').addClass('collapse');
+    $(`img.img4`).css("visibility", "hidden");
+    $(`img.img5`).css("visibility", "visible");
     term.disable();
   } else if (command !== '') {
     processCommand(command, term);
