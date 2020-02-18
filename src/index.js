@@ -39,7 +39,6 @@ let wait = false;
 var scanlines = $('.scanlines');
 var tv = $('.tv');
 var term = $('#term').terminal(function (command, term) {
-  console.log("enter");
   if (command.match(/^\s*exit\s*$/)) {
     $('.tv').addClass('collapse');
     term.disable();
