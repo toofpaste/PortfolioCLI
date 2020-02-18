@@ -4,6 +4,8 @@ import './styles.css';
 import Logo from './img/close.png';
 import Max from './img/fullscreen.png';
 import Min from './img/minimize.png';
+import on from './img/powerOff.png';
+import off from './img/powerOn.png';
 import pd from './ResumeSeptember2019.pdf';
 const elep = document.getElementById('resume');
 elep.href = pd;
@@ -13,9 +15,11 @@ const ele2 = document.getElementById('img2');
 ele2.src = Max;
 const ele3 = document.getElementById('img3');
 ele3.src = Min;
+const ele4 = document.getElementById('img4');
+const ele5 = document.getElementById('img5');
+ele4.src = off;
+ele5.src = on;
 let intro = `I recommend accessing this site on a computer. There are still mobile version bugs`;
-let currentLine = 0;
-let checkMob = 1;
 if(window.innerWidth >= 1007) {
 
   intro =
@@ -34,84 +38,218 @@ if(window.innerWidth >= 1007) {
 let wait = false;
 var scanlines = $('.scanlines');
 var tv = $('.tv');
-  var term = $('#term').terminal(function (command, term) {
-    currentLine++;
-    if (command.match(/^\s*exit\s*$/)) {
-      $('.tv').addClass('collapse');
-       term.disable();
-    } else if (command !== '') {
-      processCommand(command, term);
-    }
-  }, {
-    name: 'js_demo',
-    exit: false,
-    enabled: true,
-    pauseEvents: false,
-    softPause: false,
-    onInit: function () {
-      set_size();
-      },
-    prompt: 'V://> ',
-    greetings: intro
-  });
-  term.enable();
-  term.focus(true);
+var term = $('#term').terminal(function (command, term) {
+  console.log("enter");
+  if (command.match(/^\s*exit\s*$/)) {
+    $('.tv').addClass('collapse');
+    term.disable();
+  } else if (command !== '') {
+    processCommand(command, term);
+  }else if(command === ''){
+    holdHistory.push({
+      mess: 'V://> ',
+      color: '#AAAAAA'
+    });
+  }
+}, {
+  name: 'js_demo',
+  exit: false,
+  enabled: true,
+  pauseEvents: false,
+  softPause: false,
+  onInit: function () {
+    set_size();
+  },
+  onFocus: function(){
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    term.resume();
+  },
+  onBlur: function(){
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    term.resume();
+  },
+  prompt: 'V://> ',
+  greetings: intro
+});
+term.enable();
+term.focus(true);
 $(document).ready(function(){
+  $('.old').addClass('runAnim');
+  $(`img.img5`).css("visibility", "hidden");
+  $(`img.img4`).on('click', function(e){
+    e.preventDefault();
+    $('.tv').addClass('collapse');
+    term.disable();
+    $('.old').removeClass('runAnim');
+    $(`img.img4`).css("visibility", "hidden");
+    $(`img.img5`).css("visibility", "visible");
+  }); //red button
+  $(`img.img5`).on('click', function(e){
+    e.preventDefault();
+    // animation: flicker 0.12s infinite
+    $('.tv').removeClass('collapse');
+    // $('.tv').addClass('expand');
+    $('.old').addClass('runAnim');
+    term.enable();
+    $(`img.img5`).css("visibility", "hidden");
+    $(`img.img4`).css("visibility", "visible");
+  }); //green button
+  term.pause();
   testTime(allIntro);
-
+  //printLine(allIntro[0]);
   $('a.help1').on('click', function(e) {
     // term.insert("education");
-    processCommand("education", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    // term.resume();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> Education'}]`);
+        processCommand("Education", term);
+      }
+
+    }, 500);
+
     // term.exec("education", true)
     e.preventDefault();
   });
   $('a.help2').on('click', function(e) {
-    processCommand("work", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> Work'}]`);
+        // wait = false;
+        processCommand("Work", term);
+      }
+
+    }, 500);
     e.preventDefault();
   });
   $('a.help3').on('click', function(e) {
-    processCommand("languages", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    // term.resume();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> Languages'}]`);
+        // wait = false;
+        processCommand("Languages", term);
+      }
+
+    }, 500);
+
     e.preventDefault();
   });
   $('a.help4').on('click', function(e) {
-    processCommand("github", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    // term.resume();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> Github'}]`);
+
+        // wait = false;
+        processCommand("Github", term);
+      }
+
+    }, 500);
+
     e.preventDefault();
   });
   $('a.help5').on('click', function(e) {
-    processCommand("linkedin", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    // term.resume();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> LinkedIn'}]`);
+        // wait = false;
+        processCommand("Linkedin", term);
+      }
+
+    }, 500);
+
     e.preventDefault();
   });
   $('a.help6').on('click', function(e) {
-    processCommand("projects", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> Projects'}]`);
+        // wait = false;
+        processCommand("Projects", term);
+      }
+
+    }, 500);
+
     e.preventDefault();
   });
   $('a.help7').on('click', function(e) {
-    processCommand("about", term);
+    countLetter2 = 1000;
+    countLetter = 1000;
+    countLoops = 1000;
+    term.clear();
+    term.echo(intro);
+    setAllLines();
+    setTimeout(()=>{
+      if(!wait) {
+        term.echo(`[[b;${'#AAAAAA'};]${'V://> About'}]`);
+        // wait = false;
+        processCommand("About", term);
+      }
+
+    },500);
+
     e.preventDefault();
   });
 });
 
-function setAllLine(current) {
-    for (var xx = 0; xx < current; xx++) {
-      if (allIntro[xx].mess2 == undefined) {
-        term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]`)
-      } else if(allIntro[xx].mess2 !== undefined) {
-        term.update(xx + checkMob, `[[b;${holdHistory[xx].color};]${holdHistory[xx].mess}]` + `[[b;${holdHistory[xx].color2};]${holdHistory[xx].mess2}]`);
-      }
+function setAllLines(){
+  for(var i = 0; i < holdHistory.length; i ++){
+    if(!holdHistory[i].hasOwnProperty('mess2')){
+      term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]`);
+    }else if(holdHistory[i].hasOwnProperty('mess2')){
+      term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]` + `[[b;${holdHistory[i].color2};]${holdHistory[i].mess2}]`);
     }
+  }
+  term.resume();
 }
-setTimeout(()=>{
-  startUp();
-}, 1500);
-function startUp(){
-  setInterval(()=>{
-    if(waitForUpdate) {
-      setAllLine(term.last_index() - 1);
-    }
-  }, 100)
-}
-let waitForUpdate = true;
-
 function set_size() {
   // for window height of 170 it should be 2s
   var height = $(window).height();
@@ -121,44 +259,52 @@ function set_size() {
   tv[0].style.setProperty("--width", width);
   tv[0].style.setProperty("--height", height);
 }
-let help = false;
-let i = 0;
-let printComm = "";
+let buildWord = "";
+let buildWord2 = "";
+let countLetter = 0;
+let countLetter2 = 0;
 
-function printLineFaster(thisLine, words, color){
+function printLine(words){
+  if(countLetter < 950 && countLetter2 < 950) {
+    setTimeout(() => {
+      if (!words.hasOwnProperty('mess2') && countLetter < words.mess.length) {
+        buildWord += words.mess[countLetter];
+        countLetter++;
+        if (countLetter <= 1) {
+          term.echo(`[[b;${words.color};]${buildWord}]`);
+          printLine(words);
+        } else if (countLetter >= 2) {
+          term.update(term.last_index(), `[[b;${words.color};]${buildWord}]`);
+          if (buildWord === words.mess && !runtime) {
+            term.resume();
+          }
+          printLine(words);
+        }
+      } else if (words.hasOwnProperty('mess2') && countLetter < words.mess2.length) {
 
-  setTimeout(() => {
-    if(help && i < words.length){
-      printComm += words[i];
-      if(i === 0){
+        if (countLetter <= 0) {
+          buildWord += words.mess[countLetter];
+          countLetter++;
+          term.echo(`[[b;${words.color};]${buildWord}]`);
+          printLine(words);
+        } else if (countLetter >= 1 && countLetter < words.mess.length) {
+          buildWord += words.mess[countLetter];
+          countLetter++;
+          term.update(term.last_index(), `[[b;${words.color};]${buildWord}]`);
+          printLine(words);
+        } else if (countLetter >= words.mess.length && countLetter2 < words.mess2.length) {
+          buildWord2 += words.mess2[countLetter2];
+          countLetter2++;
+          term.update(term.last_index(), `[[b;${words.color};]${words.mess}]` + `[[b;${words.color2};]${buildWord2}]`);
+          if (buildWord2 === words.mess2 && !runtime) {
+            term.resume();
+          }
+          printLine(words);
+        }
 
-        term.echo(`[[b;${color};]${printComm}]`);
-      }else {
-        term.update(thisLine, `[[b;${color};]${printComm}]`);
       }
-      i++;
-      printLineFaster(thisLine, words, color);
-    }else {
-      // i = 0;
-      help = false;
-    }
-
-  }, 15);
-}
-function printSameLineFaster(thisLine, words, prevWord, color, colorPrev){
-  setTimeout(() => {
-    if(help && i < words.length){
-      printComm += words[i];
-      term.update(thisLine, `[[b;${colorPrev};]${prevWord}]` + `[[b;${color};]${printComm}]`);
-      //         term.update(9,`[[b;#EEFC12;]Skills]: ` + `[[b;#fff;]]${wordP9A}`);
-      i++;
-     printSameLineFaster(thisLine, words, prevWord, color, colorPrev);
-    }else {
-      // i = 0;
-      help = false;
-    }
-
-  }, 15);
+    }, 15);
+  }
 }
 let yellow = "#EEFC12";
 let red = "#ce2f2f";
@@ -166,21 +312,21 @@ let white = "#fff";
 
 let runtime = true;
 let time1 = 500;
-let time2 = 0;
 let countLoops = 0;
-let waitTime = 30;
+let waitTime = 26;
 let holdHistory = [];
 function resetPrint(){
-  i = 0;
-  printComm = "";
-  help = true;
+  buildWord = "";
+  buildWord2 = "";
+  countLetter = 0;
+  countLetter2 = 0;
 }
 function resetCounts(){
   countLoops = 0;
   runtime = true;
 }
+
 function testTime(allIntro){
-  waitForUpdate = false;
   if(countLoops >= allIntro.length){
     runtime = false;
     wait = false;
@@ -188,33 +334,25 @@ function testTime(allIntro){
   if(countLoops === 0){
     holdHistory = holdHistory.concat(allIntro);
     time1 = 500;
-  }else if(allIntro[countLoops - 1].mess2 == undefined && allIntro[countLoops - 1].mess !== " "){
-    time1 = allIntro[countLoops - 1].mess.length * 30;
-  }else if(allIntro[countLoops - 1].mess === " "){
-    time1 = 50;
-  }else if(allIntro[countLoops - 1].mess2 !== undefined){
-    time1 = allIntro[countLoops - 1].mess2.length * waitTime;
-  }
-  if(runtime){
+  }else if(countLoops > 950){
+    runtime=false;
+  }else if (!allIntro[countLoops - 1].hasOwnProperty('mess2') && allIntro[countLoops - 1].mess !== " ") {
+      time1 = allIntro[countLoops - 1].mess.length * 30;
+    }else if (allIntro[countLoops - 1].mess === " ") {
+      time1 = 50;
+    }else if (allIntro[countLoops - 1].hasOwnProperty('mess2')) {
+      time1 = (allIntro[countLoops - 1].mess2.length + allIntro[countLoops - 1].mess.length) * waitTime;
+    }
+  if(runtime && countLoops < 950){
     setTimeout(()=>{
-      if(allIntro[countLoops].mess2 == undefined){
-        resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
-        countLoops++;
-        testTime(allIntro);
-      }else if(allIntro[countLoops].mess2 !== undefined){
-        resetPrint();
-        printLineFaster(term.last_index() + 1, allIntro[countLoops].mess, allIntro[countLoops].color);
-        time2 = allIntro[countLoops].mess.length * waitTime;
-        setTimeout(() => {
-          resetPrint();
-          printSameLineFaster(term.last_index(), allIntro[countLoops].mess2, allIntro[countLoops].mess, allIntro[countLoops].color2, allIntro[countLoops].color);
-          countLoops++;
-          testTime(allIntro);
 
-        }, time2 + 100);
+        resetPrint();
+      if(countLoops < 950) {
+        printLine(allIntro[countLoops]);
+        countLoops++;
       }
-      waitForUpdate = true;
+        testTime(allIntro);
+
     }, time1);
 
   }
@@ -292,19 +430,19 @@ let helpCommand = [
   {
     mess: "Education: ",
     color: yellow,
-    mess2: "Print all education information",
+    mess2: "Show all education information",
     color2: white
   },
   {
     mess: "Work: ",
     color: yellow,
-    mess2: "Print all work experience",
+    mess2: "Show all work experience",
     color2: white
   },
   {
     mess: "Languages: ",
     color: yellow,
-    mess2: "Print all of my known programming languages",
+    mess2: "Show all of my known programming languages",
     color2: white
   },
   {
@@ -329,6 +467,18 @@ let helpCommand = [
     mess: "About: ",
     color: yellow,
     mess2: "About me",
+    color2: white
+  },
+  {
+    mess: "Reset: ",
+    color: yellow,
+    mess2: "Resets terminal page",
+    color2: white
+  },
+  {
+    mess: "Exit: ",
+    color: red,
+    mess2: "Turns terminal off",
     color2: white
   }
 ];
@@ -475,7 +625,7 @@ let workCommand = [
     color: white
   },
   {
-    mess: "  -Managed and lead groups of 30+ children",
+    mess: "  -Managed and lead groups of 30+ children grade 6th-8th",
     color: white
   },
   {
@@ -576,48 +726,65 @@ let projCommand = [
 function processCommand(command, term) {
   if(!wait) {
     let cmd = command.split(" ");
+    holdHistory.push({
+      mess: `V://> ${cmd[0]}`,
+      color: '##AAAAAA'
+    });
     cmd[0] = cmd[0].toLowerCase();
     if (cmd[0] == "help") {
       wait = true;
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(helpCommand);
       // return;
     } else if (cmd[0] == "education") {
       wait = true;
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(educCommand);
     } else if (cmd[0] == "work") {
       wait = true;
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(workCommand);
     } else if (cmd[0] == "github") {
       wait = true;
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(gitCommand);
     } else if (cmd[0] == "linkedin") {
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(linkCommand);
     } else if (cmd[0] == "languages") {
       wait = true;
+      term.pause();
       resetPrint();
       resetCounts();
       testTime(langCommand);
     } else if (cmd[0] == "about") {
+      term.pause();
       wait = true;
       resetPrint();
       resetCounts();
       testTime(aboutCommand);
     } else if (cmd[0] == "projects") {
+      term.pause();
       wait = true;
       resetPrint();
       resetCounts();
       testTime(projCommand);
+    }else if(cmd[0] == "reset"){
+      term.clear();
+      holdHistory = [];
+      term.echo(intro);
     }else {
+      term.pause();
       wait = true;
       resetPrint();
       resetCounts();
@@ -625,3 +792,4 @@ function processCommand(command, term) {
     }
   }
 }
+

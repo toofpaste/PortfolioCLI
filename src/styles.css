@@ -1,11 +1,175 @@
+@keyframes turn-on {
+    0% {
+        transform: scale(1, 0.8) translate3d(0, 0, 0);
+        -webkit-filter: brightness(30);
+        filter: brightness(30);
+        opacity: 1;
+    }
+    3.5% {
+        transform: scale(1, 0.8) translate3d(0, 100%, 0);
+    }
+    3.6% {
+        transform: scale(1, 0.8) translate3d(0, -100%, 0);
+        opacity: 1;
+    }
+    9% {
+        transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+        -webkit-filter: brightness(30);
+        filter: brightness(30);
+        opacity: 0;
+    }
+    11% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        -webkit-filter: contrast(0) brightness(0);
+        filter: contrast(0) brightness(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        -webkit-filter: contrast(1) brightness(1.2) saturate(1.3);
+        filter: contrast(1) brightness(1.2) saturate(1.3);
+        opacity: 1;
+    }
+}
+
+@keyframes flicker2 {
+    0% {
+        opacity: 0.38927;
+    }
+    5% {
+        opacity: 0.62502;
+    }
+    10% {
+        opacity: 0.94529;
+    }
+    15% {
+        opacity: 0.14426;
+    }
+    20% {
+        opacity: 0.2296;
+    }
+    25% {
+        opacity: 0.58552;
+    }
+    30% {
+        opacity: 0.59122;
+    }
+    35% {
+        opacity: 0.37027;
+    }
+    40% {
+        opacity: 0.93926;
+    }
+    45% {
+        opacity: 0.53982;
+    }
+    50% {
+        opacity: 0.20993;
+    }
+    55% {
+        opacity: 0.22968;
+    }
+    60% {
+        opacity: 0.64527;
+    }
+    65% {
+        opacity: 0.46829;
+    }
+    70% {
+        opacity: 0.0417;
+    }
+    75% {
+        opacity: 0.02899;
+    }
+    80% {
+        opacity: 0.3248;
+    }
+    85% {
+        opacity: 0.71195;
+    }
+    90% {
+        opacity: 0.29669;
+    }
+    95% {
+        opacity: 0.43819;
+    }
+    100% {
+        opacity: 0.1918;
+    }
+}
+
+@keyframes turn-on {
+    0% {
+        transform: scale(1, 0.8) translate3d(0, 0, 0);
+        -webkit-filter: brightness(30);
+        filter: brightness(30);
+        opacity: 1;
+    }
+    3.5% {
+        transform: scale(1, 0.8) translate3d(0, 100%, 0);
+    }
+    3.6% {
+        transform: scale(1, 0.8) translate3d(0, -100%, 0);
+        opacity: 1;
+    }
+    9% {
+        transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+        -webkit-filter: brightness(30);
+        filter: brightness(30);
+        opacity: 0;
+    }
+    11% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        -webkit-filter: contrast(0) brightness(0);
+        filter: contrast(0) brightness(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        -webkit-filter: contrast(1) brightness(1.2) saturate(1.3);
+        filter: contrast(1) brightness(1.2) saturate(1.3);
+        opacity: 1;
+    }
+}
+@keyframes overlay-anim {
+    0% {
+        visibility: hidden;
+    }
+    20% {
+        visibility: hidden;
+    }
+    21% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+.overlay {
+    color: #00FF00;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    font-size: 60px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+#term::after{
+    animation: turn-on 4s linear;
+    animation-fill-mode: forwards;
+}
+
+
 .terminal-output div:first-child div span {
     display: block;
     margin: 0px;
     font-family: 'Courier New', monospace;
-    white-space: pre;    
+    white-space: pre;
     background-color: rgba(0, 0, 0, 0) !important;
     color: rgb(255, 255, 255) !important;
-    text-shadow: #0c7b46 0px 3.2px 16px;    
+    text-shadow: #0c7b46 0px 3.2px 16px;
   }
 .topnav {
     background-color: #cbd0cc;
@@ -109,245 +273,285 @@
 #img3 {
     height: 15px;
 }
+.img4 {
+    top: 17px;
+    height: 31px;
+    position: fixed;
+    right: 1vw;
+    cursor: pointer;
+}
+.img5{
+    top: 17px;
+    height: 31px;
+    position: fixed;
+    right: 1vw;
+    cursor: pointer;
+}
 
- /*
- * style based on http://js13kgames.com/entries/lost-in-cyberspace
- */
- body {
-   margin: 0;
-   background: black;
-     overflow-y: hidden;
- }
+.img4:hover {
+    background-color: #6e736f;
+}
+.img5:hover {
+    background-color: #6e736f;
+}
+body {
+    margin: 0;
+    background: black;
+    overflow-y: hidden;
+}
 
- #term {
+#term {
 
-   height: 95vh;
-   --background: #031e11;
-   --size: 1.5;
-     border-left: 7px solid #cbd0cc;
- }
+    height: 95vh;
+    --background: #031e11;
+    --size: 1.5;
+    border-left: 7px solid #cbd0cc;
+}
+.old {
+    height: 95vh;
+    --background: #031e11;
+    --size: 1.5;
+    border-left: 7px solid #cbd0cc;
+}
+.old::after {
 
- /* to see yourself like in a mirror */
- .self {
-   transform: scale(-1, 1);
- }
+}
+.runAnim {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.2);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: turn-on 8s linear;
+}
 
- /* flicker animation taken from http://goonhub.com/secret */
- #term::after {
-   content: " ";
-   display: block;
-   position: fixed;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   background: rgba(18, 16, 16, 0.2);
-   opacity: 0;
-   z-index: 2;
-   pointer-events: none;
-   animation: flicker 0.12s infinite;
- }
+/* to see yourself like in a mirror */
+.self {
+    transform: scale(-1, 1);
+}
 
- @keyframes flicker {
-   0% {
-     opacity: 0.552;
-   }
+/* flicker animation taken from http://goonhub.com/secret */
+#term::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.2);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.12s infinite;
+}
 
-   5% {
-     opacity: 0.48287;
-   }
+@keyframes flicker {
+    0% {
+        opacity: 0.552;
+    }
 
-   10% {
-     opacity: 0.59134;
-   }
+    5% {
+        opacity: 0.48287;
+    }
 
-   15.0% {
-     opacity: 0.79543;
-   }
+    10% {
+        opacity: 0.59134;
+    }
 
-   20% {
-     opacity: 0.75134;
-   }
+    15.0% {
+        opacity: 0.79543;
+    }
 
-   25% {
-     opacity: 0.1956;
-   }
+    20% {
+        opacity: 0.75134;
+    }
 
-   30.0% {
-     opacity: 0.90687;
-   }
+    25% {
+        opacity: 0.1956;
+    }
 
-   35% {
-     opacity: 0.122;
-   }
+    30.0% {
+        opacity: 0.90687;
+    }
 
-   40% {
-     opacity: 0.62254;
-   }
+    35% {
+        opacity: 0.122;
+    }
 
-   45% {
-     opacity: 0.56977;
-   }
+    40% {
+        opacity: 0.62254;
+    }
 
-   50% {
-     opacity: 0.9925;
-   }
+    45% {
+        opacity: 0.56977;
+    }
 
-   55.0% {
-     opacity: 0.55487;
-   }
+    50% {
+        opacity: 0.9925;
+    }
 
-   60.0% {
-     opacity: 0.16607;
-   }
+    55.0% {
+        opacity: 0.55487;
+    }
 
-   65% {
-     opacity: 0.12353;
-   }
+    60.0% {
+        opacity: 0.16607;
+    }
 
-   70% {
-     opacity: 0.2214;
-   }
+    65% {
+        opacity: 0.12353;
+    }
 
-   75% {
-     opacity: 0.67908;
-   }
+    70% {
+        opacity: 0.2214;
+    }
 
-   80% {
-     opacity: 0.97163;
-   }
+    75% {
+        opacity: 0.67908;
+    }
 
-   85.0% {
-     opacity: 0.1275;
-   }
+    80% {
+        opacity: 0.97163;
+    }
 
-   90% {
-     opacity: 0.37186;
-   }
+    85.0% {
+        opacity: 0.1275;
+    }
 
-   95% {
-     opacity: 0.24475;
-   }
+    90% {
+        opacity: 0.37186;
+    }
 
-   100% {
-     opacity: 0.37221;
-   }
- }
+    95% {
+        opacity: 0.24475;
+    }
 
- /* glow */
- .terminal {
-   text-shadow: 0 0.2rem 1rem #0c7b46;
- }
+    100% {
+        opacity: 0.37221;
+    }
+}
 
- /* based on
+/* glow */
+.terminal {
+    text-shadow: 0 0.2rem 1rem #0c7b46;
+}
+
+/* based on
 https://blog.carbonfive.com/2015/01/07/vintage-terminal-effect-in-css3/
 */
- .scanlines {
-   top:45px;
-   left: 7px;
-   height: 100%;
-   width: 100%;
-   background: linear-gradient(to bottom,
-       rgba(255, 255, 255, 0),
-       rgba(255, 255, 255, 0) 50%,
-       rgba(0, 0, 0, .2) 70%,
-       rgba(0, 0, 0, .6));
-   background-size: 100% .3rem;
-   position: fixed;
-   pointer-events: none;
- }
+.scanlines {
+    top:45px;
+    left: 7px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, .2) 70%,
+    rgba(0, 0, 0, .6));
+    background-size: 100% .3rem;
+    position: fixed;
+    pointer-events: none;
+}
 
- .scanlines:before {
-   position: absolute;
-   top: 0px;
-   width: 100%;
-   height: 5px;
-   background: #fff;
-   background: linear-gradient(to bottom,
-       rgba(255, 0, 0, 0) 0%,
-       rgba(255, 250, 250, 1) 50%,
-       rgba(255, 255, 255, 0.98) 51%,
-       rgba(255, 0, 0, 0) 100%);
-   /* W3C */
-   opacity: .1;
- }
+.scanlines:before {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    background: linear-gradient(to bottom,
+    rgba(255, 0, 0, 0) 0%,
+    rgba(255, 250, 250, 1) 50%,
+    rgba(255, 255, 255, 0.98) 51%,
+    rgba(255, 0, 0, 0) 100%);
+    /* W3C */
+    opacity: .1;
+}
 
- .scanlines:after {
-   box-shadow: 0 2px 6px rgba(25, 25, 25, 0.2),
-     inset 0 1px rgba(50, 50, 50, 0.1),
-     inset 0 3px rgba(50, 50, 50, 0.05),
-     inset 0 3px 8px rgba(64, 64, 64, 0.05),
-     inset 0 -5px 10px rgba(25, 25, 25, 0.1);
- }
+.scanlines:after {
+    box-shadow: 0 2px 6px rgba(25, 25, 25, 0.2),
+    inset 0 1px rgba(50, 50, 50, 0.1),
+    inset 0 3px rgba(50, 50, 50, 0.05),
+    inset 0 3px 8px rgba(64, 64, 64, 0.05),
+    inset 0 -5px 10px rgba(25, 25, 25, 0.1);
+}
 
- #term:focus-within+.scanlines:before {
-   content: '';
-   animation: vline calc(var(--time, 2) * 1s) linear infinite;
- }
+#term:focus-within+.scanlines:before {
+    content: '';
+    animation: vline calc(var(--time, 2) * 1s) linear infinite;
+}
 
- /*
- * MS Edge don't support focus-within and css vars
- * inside pseudo selector
- */
- @supports (-ms-ime-align:auto) {
-   .scanlines:before {
-     content: '';
-     animation: vline 3s linear infinite;
-   }
- }
+/*
+* MS Edge don't support focus-within and css vars
+* inside pseudo selector
+*/
+@supports (-ms-ime-align:auto) {
+    .scanlines:before {
+        content: '';
+        animation: vline 3s linear infinite;
+    }
+}
 
- @keyframes vline {
-   to {
-     transform: translate(0, 100vh)
-   }
- }
+@keyframes vline {
+    to {
+        transform: translate(0, 100vh)
+    }
+}
 
- /* turn off animation */
- .tv {
-   height: 100vh;
-   position: relative;
- }
+/* turn off animation */
+.tv {
+    height: 100vh;
+    position: relative;
+}
 
- .tv.collapse {
-   animation: size 2s ease-out;
-   animation-fill-mode: forwards;
- }
+.tv.collapse {
+    animation: size 2s ease-out;
+    animation-fill-mode: forwards;
+}
 
- .tv.collapse:before {
-   content: '';
-   display: block;
-   height: 100%;
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   top: 0;
-   background: white;
-   z-index: 1;
-   opacity: 0;
-   animation: opacity 2s ease-out;
-   animation-fill-mode: forwards;
- }
+.tv.collapse:before {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: white;
+    z-index: 1;
+    opacity: 0;
+    animation: opacity 2s ease-out;
+    animation-fill-mode: forwards;
+}
 
- @keyframes opacity {
-   to {
-     opacity: 1;
-   }
- }
+@keyframes opacity {
+    to {
+        opacity: 1;
+    }
+}
 
- @keyframes size {
-   50% {
-     transform: scaleX(calc(1 / var(--width)));
-     opacity: 1;
-   }
+@keyframes size {
+    50% {
+        transform: scaleX(calc(1 / var(--width)));
+        opacity: 1;
+    }
 
-   98% {
-     transform: scaleX(calc(1 / var(--width))) scaleY(calc(1 / var(--height)));
-     opacity: 1;
-   }
+    98% {
+        transform: scaleX(calc(1 / var(--width))) scaleY(calc(1 / var(--height)));
+        opacity: 1;
+    }
 
-   100% {
-     transform: scaleX(calc(1 / var(--width))) scaleY(calc(1 / var(--height)));
-     opacity: 0;
-   }
- }
+    100% {
+        transform: scaleX(calc(1 / var(--width))) scaleY(calc(1 / var(--height)));
+        opacity: 0;
+    }
+}
