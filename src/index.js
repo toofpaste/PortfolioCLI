@@ -240,11 +240,13 @@ $(document).ready(function(){
 });
 
 function setAllLines(){
-  for(var i = 0; i < holdHistory.length; i ++){
-    if(!holdHistory[i].hasOwnProperty('mess2')){
-      term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]`);
-    }else if(holdHistory[i].hasOwnProperty('mess2')){
-      term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]` + `[[b;${holdHistory[i].color2};]${holdHistory[i].mess2}]`);
+  if(!jQuery.isEmptyObject(holdHistory)){
+    for(var i = 0; i < holdHistory.length; i ++){
+      if(!holdHistory[i].hasOwnProperty('mess2')){
+        term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]`);
+      }else if(holdHistory[i].hasOwnProperty('mess2')){
+        term.echo(`[[b;${holdHistory[i].color};]${holdHistory[i].mess}]` + `[[b;${holdHistory[i].color2};]${holdHistory[i].mess2}]`);
+      }
     }
   }
   term.resume();
